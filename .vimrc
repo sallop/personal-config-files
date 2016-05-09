@@ -20,6 +20,7 @@ Plugin 'tyru/open-browser.vim'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'violetyk/cake.vim'
 Plugin 'dsawardekar/wordpress.vim'
+Plugin 'leafgarland/typescript-vim'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -36,6 +37,11 @@ Plugin 'joonty/vdebug'
 Plugin 'stephpy/vim-yaml'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'groenewege/vim-less'
+
+Plugin 'mxw/vim-jsx'
+
+Plugin 'derekwyatt/vim-scala'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -75,10 +81,15 @@ filetype indent plugin on
 set modeline
 
 " indentation
-set tabstop=8
+" set tabstop=8
+" set expandtab
+" set shiftwidth=4
+" set softtabstop=4
+set tabstop=2
 set expandtab
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
+
 
 "tyru's setting
 let g:netrw_nogx=1 "disable netrw's gx mapping.
@@ -98,10 +109,12 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [], 'passive_filetypes': [] }
 nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
 nnoremap <F12>f :exe ':silent !firefox %'<CR>
 nnoremap <F12>c :exe ':silent !google-chrome %'<CR>
 
+let g:typescript_compiler_options = '-sourcemap'
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
