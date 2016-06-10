@@ -1,22 +1,47 @@
 //require("./style.css");
-import React from 'react';
+import React, { PropTypes } from 'react';
+import {browserHistory, Router, Route} from 'react-router';
 import ReactDOM from 'react-dom';
+import makeRoutes from './routes';
+
+const Home = React.createClass({
+  render: function() {
+    return (<div>Hello world</div>);
+  }
+});
+
+const routes = makeRoutes();
+//const routes = (
+//    <Router>
+//      <Route path="/" component={Home} />
+//    </Router>
+//);
+
 
 class App extends React.Component {
+  static propTypes = {
+    routes: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
+  }
+  // class getter
+  get content(){
+    //return "Bob is dead. Because of us.";
+    //return (<Router history={this.props.history} />);
+    return (<Router
+        routes={this.props.routes}
+        history={this.props.history} />);
+  }
+
   render(){
-    var NODE_ENV = "hello world";
     return (
-        <div className="helloWorld">
-          <h1>
-            <i className="fa fa-star"></i>
-            Environment: { NODE_ENV }
-          </h1>
-        </div>
+      <div style={{ height: '100%', color:'blue' }}>
+        { this.content }
+      </div>
     );
   }
 }
 
-() => { console.log("Hello World"); }
+ReactDOM.render(<App history={browserHistory} routes={routes} />,
+    document.getElementById('world'));
 
-//ReactDOM.render(<World/>, document.getElementById('world'));
 module.exports = App;
