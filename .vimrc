@@ -42,6 +42,12 @@ Plugin 'mxw/vim-jsx'
 
 Plugin 'derekwyatt/vim-scala'
 
+Plugin 'fatih/vim-go'
+
+Plugin "scrooloose/syntastic"
+
+Plugin "garbas/vim-snipmate"
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -110,6 +116,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [], 'passive_filetypes': [] }
+let g:syntastic_use_quick_fix_lists = 1
 nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
 nnoremap <F12>f :exe ':silent !firefox %'<CR>
