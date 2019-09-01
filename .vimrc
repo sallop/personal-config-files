@@ -1,10 +1,6 @@
-set backupcopy=yes
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set statusline+=col:\ %c
-" set statusline+=%F\ %l\,%c
-set statusline+=%f\ %l\,%c
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
@@ -44,14 +40,11 @@ Plugin 'digitaltoad/vim-jade'
 Plugin 'groenewege/vim-less'
 
 Plugin 'mxw/vim-jsx'
-
 Plugin 'derekwyatt/vim-scala'
-
 Plugin 'fatih/vim-go'
-
 Plugin 'PProvost/vim-ps1'
-Plugin 'w0rp/ale'
 
+Plugin 'w0rp/ale'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
@@ -70,6 +63,7 @@ Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
 
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -94,6 +88,7 @@ function! Browser()
 	let line = matchstr (line, "\%(http://www\.\)[^,;\t]*")
 	exec "!firefox".line
 endfunction
+
 map <Leader>w :call Browser()<CR>
 
 function! Firefox(uri)
